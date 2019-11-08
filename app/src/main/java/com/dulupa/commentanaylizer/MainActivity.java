@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
     static final String INSTANCE_STATE_COMMENTS=BuildConfig.APPLICATION_ID+"INSTANCE_STATE_COMMENTS";
     static final String INSTANCE_STATE_NEXT_PAGE_TOKEN=BuildConfig.APPLICATION_ID+"INSTANCE_NEXT_PAGE_TOKEN";
 
-    boolean isRebindLoader=false;
+    //boolean isRebindLoader=false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
                 Bundle loaderArgs=new Bundle();
                     loaderArgs.putString(KEY_MAX_RESULT,String.valueOf(LOAD_EACH_TIME));
                     loaderArgs.putString(KEY_VIDEO_ID,"6kZg09ic9oQ");
-                isRebindLoader=false;
+                //isRebindLoader=false;
                 loaderManager.restartLoader(LOADER_COMMENT_THREAD_LIST,
                                             loaderArgs,
                                             new LoadCommentThreadListHandler()).forceLoad();
@@ -132,9 +132,8 @@ public class MainActivity extends AppCompatActivity {
         loaderManager=LoaderManager.getInstance(this);
         //如果背景任務存在會綁回去(忽略bundle)，不存在就算了(因為一開始不用讀)
         if((loaderManager.getLoader(LOADER_COMMENT_THREAD_LIST)!=null)){
-            //&&(loaderManager.getLoader(LOADER_COMMENT_THREAD_LIST).isStarted
             Log.d("debug","reBindLoader()");
-            isRebindLoader=true;
+            //isRebindLoader=true;
             loaderManager.initLoader(   LOADER_COMMENT_THREAD_LIST,
                     null,
                     new LoadCommentThreadListHandler());
@@ -155,11 +154,11 @@ public class MainActivity extends AppCompatActivity {
         //讀取結束，做成comment加入all comment，再通知adapter更新recy view
         @Override
         public void onLoadFinished(@NonNull Loader<String> loader, String rawJson) {
-            if(!isRebindLoader) {
+            //if(!isRebindLoader) {
                 Log.d("debug", " onLoadFinished");
                 comments.addAll(Resolver.getInstance().resolveCommentsFrom(rawJson));
                 commentAdapter.notifyDataSetChanged();
-            }
+            //}
         }
         @Override
         public void onLoaderReset(@NonNull Loader<String> loader) {
