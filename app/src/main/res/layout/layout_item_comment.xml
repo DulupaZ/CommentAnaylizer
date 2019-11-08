@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardUseCompatPadding="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+        <!--Left -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <ImageView
+                android:id="@+id/img_author"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/unknown_user_image"/>
+        </LinearLayout>
+
+        <!--Right -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="7"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_author"
+                style="@style/text.big"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Author" />
+
+            <TextView
+                android:id="@+id/tv_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/text"
+                android:singleLine="false"
+                android:text="content" />
+
+            <TextView
+                android:id="@+id/tv_publish_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:text="TextView"
+                style="@style/text"  />
+            <!---Like Reply -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_like"
+                    style="@style/text"
+                    android:layout_width="0dp"
+
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableLeft="@drawable/ic_like"
+                    android:isScrollContainer="false"
+                    android:padding="4dp"
+                    android:text="TextView"
+                    android:textAlignment="textStart" />
+
+                <TextView
+                    android:id="@+id/tv_reply"
+                    style="@style/text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableLeft="@drawable/ic_reply"
+                    android:isScrollContainer="false"
+                    android:padding="4dp"
+                    android:text="TextView"
+                    android:textAlignment="textStart" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
+
+
